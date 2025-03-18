@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<h1>ALL_CUSTOMER_LIST_page</h1>
+<table>
+    <thead>
+        <tr>
+            <th>CUSTOMER NAME  </th>
+            <th>COUSTOMER SINCE</th>
+            
+            <th>DELETE</th>
+            <th>UPDTE</th>
+        </tr>
+    </thead>
+    {% for Customer in all_customer %}
+    <tbody>
+        <tr>
+            <td>{{Customer.Customer_name}}</td>
+            <td>{{Customer.Customer_since}}</td>
+         <td>  <a href="{% url 'd_customer' Customer.id %}">
+        <button>delete</button>
+              </a>
+       </td>
+            <td>  <a href="{% url 'u_customer' Customer.id %}">
+        <button>update</button>
+        </a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor%}
+<style >
+    table,th,td{
+        border: black 1px solid;
+        padding: 20px;
+    }
+</style>
+<a href="/customer/add/">
+    <button>addcutomer</button>
+</a>
+
+
+</table>
+{%endblock%}

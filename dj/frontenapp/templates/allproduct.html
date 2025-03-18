@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<h1>All product</h1>
+<table>
+    <thead>
+        <tr>
+            <th>product_name</th>
+            <th>product_code</th>
+            <th>price</th>
+            <th>gst</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+<tbody>
+    {% for Product in all_product %}
+    <tr>
+        <td>{{Product.product_name}}</td>
+        <td>{{Product.product_code}}</td>
+        <td>{{Product.price}}</td>
+        <td>{{Product.gst}}</td>
+        <td>
+            <a href="{% url 'p_delete' Product.id %}">
+            <button>delete</button>
+            </a>
+        </td>
+        <td>
+            <a href="{% url 'p_update' Product.id %}">
+                <button>uptate</button>
+            </a>
+        </td>
+        {% endfor %}
+    </tr>
+</tbody>
+
+<style>
+    table,th,td{
+      border: 5px solid gold;
+      padding: 10px;
+    }
+  </style>
+ 
+</table>;
+<a href="/backend/product/add/">
+    <button>addproducts</button>
+    </a>
+
+
+{%endblock%}
