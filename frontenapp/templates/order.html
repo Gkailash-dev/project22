@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<h4>order list page</h4>
+<a href="/customer/order/"
+    <button> ADD ORDER</button>
+</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>customer</th>
+            <th>product</th>
+            <th>order number</th>
+            <th>order date</th>
+            <th>order quantity</th>
+            <th>amount</th>
+            <th>GST</th>
+            <th>bill</th>
+           
+        </tr>
+    </thead>
+    {% for Order in order_list %}
+    <tbody>
+        <tr>
+<td>{{ Order.customer_reference}}</td>
+<td>{{ Order.product_reference}}</td>
+<td>{{Order.order_number}}</td>
+<td>{{Order.order_date}}</td>
+<td>{{Order.order_quantity}}</td>
+<td>{{Order.amount}}</td>
+<td>{{Order.gst}}</td>
+<td>{{Order.bill_amount}}</td>
+
+        </tr>
+    
+    </tbody>
+    <style>
+        table,th,td {
+        border: 1px solid black;
+        padding: 10px;
+        }
+    </style>
+    {% endfor%}
+
+{%endblock%}
